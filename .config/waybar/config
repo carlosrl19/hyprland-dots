@@ -1,0 +1,146 @@
+{
+   "height": 24,
+   "spacing": 4,
+   "modules-left": [
+      "hyprland/workspaces",
+      "custom/spotify"
+   ],
+   "modules-center": [
+      "clock"
+   ],
+   "modules-right": [
+      "tray",
+      "pulseaudio",
+      "network",
+      "backlight",
+      "keyboard-state",
+      "battery"
+   ],
+   "hyprland/workspaces": {
+      "format": "{icon}",
+      "tooltip": false,
+      "all-outputs": true,
+      "format-icons": {
+         "active": "",
+         "default": ""
+      }
+   },
+   "keyboard-state": {
+      "numlock": false,
+      "capslock": true,
+      "format": "{name} {icon}",
+      "format-icons": {
+         "locked": "",
+         "unlocked": ""
+      }
+   },
+   "tray": {
+      "spacing": 10
+   },
+   "clock": {
+      "timezone": "America/El_Salvador",
+      "format": "{: %R - %d %b, %Y }",
+      "tooltip-format": "<big>{:%Y %B}<\/big>\n<tt><small>{calendar}<\/small><\/tt>",
+      "format-alt": "{:%Y-%m-%d}"
+   },
+   "cpu": {
+      "format": "{usage}% ",
+      "tooltip": false
+   },
+   "memory": {
+      "format": "{}% "
+   },
+   "temperature": {
+      "critical-threshold": 80,
+      "format": "{temperatureC}°C {icon}",
+      "format-icons": [
+         "",
+         "",
+         ""
+      ]
+   },
+   "backlight": {
+      "format": "{percent}% {icon}",
+      "format-icons": [
+         "",
+         "",
+         "",
+         "",
+         "",
+         "",
+         "",
+         "",
+         ""
+      ]
+   },
+   "battery": {
+      "states": {
+         "warning": 30,
+         "critical": 15
+      },
+      "format": "{capacity}% {icon}",
+      "format-charging": "{capacity}% ",
+      "format-plugged": "{capacity}% ",
+      "format-alt": "{time} {icon}",
+      "format-icons": [
+         "",
+         "",
+         "",
+         "",
+         ""
+      ],
+      "battery-charging": {
+         "format": "{capacity}% ",
+         "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+         ],
+         "animation": {
+            "name": "battery-charge-animation",
+            "duration": "1s",
+            "iteration-count": "infinite",
+            "direction": "alternate"
+         }
+      }
+   },
+   "network": {
+      "format-wifi": "{essid} ({signalStrength}%) ",
+      "format-ethernet": " eth",
+      "tooltip-format": "{ifname} via {gwaddr} ",
+      "format-linked": "{ifname} (No IP) ",
+      "format-disconnected": "No internet ⚠",
+      "on-click": "bash ~/.config/hypr/scripts/WiFi_rofi.sh"
+   },
+   "pulseaudio": {
+      "format": "{volume}% {icon}",
+      "format-bluetooth": "{volume}% (  )",
+      "format-bluetooth-muted": " {icon} {format_source}",
+      "format-muted": " {format_source}",
+      "format-source": "{volume}% ",
+      "format-source-muted": "",
+      "format-icons": {
+         "headphone": "",
+         "phone": "",
+         "portable": "",
+         "car": "",
+         "default": [
+            "",
+            "",
+            ""
+         ]
+      },
+      "on-click": "pavucontrol"
+   },
+   "custom/spotify": {
+      "exec": "/usr/bin/python3 ~/.config/waybar/custom_modules//mediaplayer.py --player spotify",
+      "format": "{}  ",
+      "return-type": "json",
+      "on-click": "playerctl play-pause",
+      "on-scroll-up": "playerctl next",
+      "on-scroll-down": "playerctl previous"
+   }
+}
+
